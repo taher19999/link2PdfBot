@@ -1,8 +1,8 @@
 class Presets(object):
-    START_TXT = "<b>Hello.. {}</b> 👋\n\n<i>Send me any valid link to convert to Pdf</i>"
-    PROCESS_TXT = "<code>Processing your link..</code>"
-    INVALID_LINK_TXT = "<b>Invalid link</b>\n\n<i>Please send me a valid link</i>"
-    UPLOAD_TXT = "<b>Uploading your file..</b>"
-    ERROR_TXT = "<b>URL Error</b>\n\n<i>Unable to create a Pdf with this URL.\nTry again with a valid one..</i>"
-    CAPTION_TXT = "{}\n\n<b>Credits:</b><a href='https://github.com/m4mallu'><b> @M4Mallu</b></a>"
+    START_TXT = "<b>مرحبا 😇... {}</b> 👋\n\n<i>أرسل لي أي رابط صالح للتحويل إلى Pdf🗂</i>\n\n<i>Dev&Eng:@ta_ja199 🧑🏻‍💻</i>"
+    PROCESS_TXT = "<code>جارٍ معالجة الرابط ..</code>"
+    INVALID_LINK_TXT = "<b>رابط غير صحيح</b>\n\n<i>ارجوك ارسل لي رابط صحيح</i>"
+    UPLOAD_TXT = "<b>تحميل ملفك ..</b>"
+    ERROR_TXT = "<b>خطأ URL</b>\n\n<i>تعذر إنشاء ملف PDF باستخدام عنوان URL هذا.😔\nحاول مرة أخرى باستخدام صالح ..</i>"
+    CAPTION_TXT = "{}\n\n<b>Developer:</b><a href='https://t.me/ta_ja199'><b> @ta_ja199 🧑🏻‍💻</b></a>"
     THUMB_URL = "https://telegra.ph/file/60706bd59c0829ed2f76f.jpg"
