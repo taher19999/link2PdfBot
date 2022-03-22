@@ -31,8 +31,8 @@ async def start_bot(self, m: Message):
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🛡 Support Chat", url="t.me/rmprojects"),
-                 InlineKeyboardButton("🎯 Source", url="https://github.com/m4mallu")]
+                [InlineKeyboardButton("اكتب تعليقاُ 📝", url="https://t.me/engineering_electrical9/719?comment=1"),
+                 InlineKeyboardButton("Dev 🧑🏻‍💻", url="https://t.me/ta_ja199")]
             ]
         )
     )
@@ -92,7 +92,7 @@ async def link_extract(self, m: Message):
     )
     print(
         '@' + m.from_user.username if m.from_user.username else m.from_user.first_name,
-        "has downloaded the file",
+        "قام بتنزيل الملف",
         file_name
     )
     try:
@@ -111,5 +111,5 @@ async def close_button(self, cb: CallbackQuery):
     )
 
 
-print(f"\n\nBot Started Successfully !\n\n")
+print(f"\n\nبدأ البوت بنجاح!\n\n")
 Bot.run()
