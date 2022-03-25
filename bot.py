@@ -32,9 +32,8 @@ async def start_bot(self, m: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("اكتب تعليقاُ 📝", url="https://t.me/engineering_electrical9/719?comment=1"),
-                 InlineKeyboardButton("Dev 🧑🏻‍💻", url="https://t.me/ta_ja199")]
-            ],
-            [
+                 InlineKeyboardButton("Dev 🧑🏻‍💻", url="https://t.me/ta_ja199")],
+            
                 [InlineKeyboardButton("⭐️ تقييم البوت ⭐️", url="https://t.me/tlgrmcbot?start=urlwebtopdfbot-review")]
             ]     
         )
