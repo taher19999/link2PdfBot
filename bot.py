@@ -58,14 +58,6 @@ async def link_extract(self, m: Message):
             file_name = str(title.get_text()) + '.pdf'
         # Creating the pdf file
         weasyprint.HTML(m.text).write_pdf(file_name)
-    except Exception:
-        await msg.edit_text(
-            Presets.ERROR_TXT,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Close", callback_data="close_btn")]]
-            )
-        )
-        return
     try:
         await msg.edit(Presets.UPLOAD_TXT)
     except Exception:
