@@ -54,25 +54,6 @@ async def link_extract(self, m: Message):
     #
     thumbnail = os.path.join(os.getcwd(), "img", "thumbnail.png")
     #
-    await self.send_chat_action(m.chat.id, "typing")
-    msg = await m.reply_text(Presets.PROCESS_TXT, reply_to_message_id=m.message_id)
-    try:
-        req = requests.get(m.text)
-        # using the BeautifulSoup module
-        soup = BeautifulSoup(req.text, 'html.parser')
-        # extracting the title frm the link
-        for title in soup.find_all('title'):
-            file_name = str(title.get_text()) + '.pdf'
-        # Creating the pdf file
-        weasyprint.HTML(m.text).write_pdf(file_name)
-    except Exception:
-        await msg.edit_text(
-            Presets.ERROR_TXT,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Close", callback_data="close_btn")]]
-            )
-        )
-        return
     try:
         await msg.edit(Presets.UPLOAD_TXT)
     except Exception:
