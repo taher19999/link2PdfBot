@@ -22,20 +22,27 @@ Bot = Client(
 )
 
 
+# ------------------------------ Start Command ---------------------------------------------- #
+@Bot.on_message(filters.private & filters.command(["start", "help"]))
+async def start_bot(self, m: Message):
+    await m.reply_text(
+        Presets.START_TXT.format(m.from_user.first_name),
+        reply_to_message_id=m.message_id,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("اكتب تعليقاُ 📝", url="https://t.me/engineering_electrical9/719?comment=1"),
+                 InlineKeyboardButton("Dev 🧑🏻‍💻", url="https://t.me/ta_ja199")],
+            
+                [InlineKeyboardButton("⭐️ تقييم البوت ⭐️", url="https://t.me/tlgrmcbot?start=urlwebtopdfbot-review")]
+            ]     
+        )
+    )
 
 
 # -------------------------------- Main execution fn --------------------------------------- #
 @Bot.on_message(filters.private & filters.text)
 async def link_extract(self, m: Message):
-    if not m.text.startswith("http"):
-        await m.reply_text(
-            Presets.INVALID_LINK_TXT,
-            reply_to_message_id=m.message_id,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Close", callback_data="close_btn")]]
-            )
-        )
-        return
     file_name = str()
     #
     thumb_path = os.path.join(os.getcwd(), "img")
@@ -58,6 +65,14 @@ async def link_extract(self, m: Message):
             file_name = str(title.get_text()) + '.pdf'
         # Creating the pdf file
         weasyprint.HTML(m.text).write_pdf(file_name)
+    except Exception:
+        await msg.edit_text(
+            Presets.ERROR_TXT,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("Close", callback_data="close_btn")]]
+            )
+        )
+        return
     try:
         await msg.edit(Presets.UPLOAD_TXT)
     except Exception:
