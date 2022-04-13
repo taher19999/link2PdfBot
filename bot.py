@@ -44,13 +44,6 @@ async def start_bot(self, m: Message):
 @Bot.on_message(filters.private & filters.text)
 async def link_extract(self, m: Message):
     if not m.text.startswith("http"):
-        await m.reply_text(
-            Presets.INVALID_LINK_TXT,
-            reply_to_message_id=m.message_id,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Close", callback_data="close_btn")]]
-            )
-        )
         return
     file_name = str()
     #
@@ -75,12 +68,6 @@ async def link_extract(self, m: Message):
         # Creating the pdf file
         weasyprint.HTML(m.text).write_pdf(file_name)
     except Exception:
-        await msg.edit_text(
-            Presets.ERROR_TXT,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Close", callback_data="close_btn")]]
-            )
-        )
         return
     try:
         await msg.edit(Presets.UPLOAD_TXT)
