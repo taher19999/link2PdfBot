@@ -22,22 +22,6 @@ Bot = Client(
 )
 
 
-# ------------------------------ Start Command ---------------------------------------------- #
-@Bot.on_message(filters.private & filters.command(["start", "help"]))
-async def start_bot(self, m: Message):
-    await m.reply_text(
-        Presets.START_TXT.format(m.from_user.first_name),
-        reply_to_message_id=m.message_id,
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("اكتب تعليقاُ 📝", url="https://t.me/engineering_electrical9/719?comment=1"),
-                 InlineKeyboardButton("Dev 🧑🏻‍💻", url="https://t.me/ta_ja199")],
-            
-                [InlineKeyboardButton("⭐️ تقييم البوت ⭐️", url="https://t.me/tlgrmcbot?start=urlwebtopdfbot-review")]
-            ]     
-        )
-    )
 
 
 # -------------------------------- Main execution fn --------------------------------------- #
